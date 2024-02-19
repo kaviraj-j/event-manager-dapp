@@ -564,13 +564,13 @@ const deployedContracts = {
   },
   11155111: {
     EventManager: {
-      address: "0xCaD269fB3dC045Db12Ce4c7B9501567175878410",
+      address: "0xd59522Cc14A3D97a9A8a7Ca284c916ce92473d3C",
       abi: [
         {
           anonymous: false,
           inputs: [
             {
-              indexed: false,
+              indexed: true,
               internalType: "uint256",
               name: "eventId",
               type: "uint256",
@@ -583,7 +583,7 @@ const deployedContracts = {
           anonymous: false,
           inputs: [
             {
-              indexed: false,
+              indexed: true,
               internalType: "uint256",
               name: "eventId",
               type: "uint256",
@@ -626,13 +626,13 @@ const deployedContracts = {
           anonymous: false,
           inputs: [
             {
-              indexed: false,
+              indexed: true,
               internalType: "address",
               name: "holder",
               type: "address",
             },
             {
-              indexed: false,
+              indexed: true,
               internalType: "uint256",
               name: "eventId",
               type: "uint256",
@@ -657,13 +657,13 @@ const deployedContracts = {
           anonymous: false,
           inputs: [
             {
-              indexed: false,
+              indexed: true,
               internalType: "address",
               name: "buyer",
               type: "address",
             },
             {
-              indexed: false,
+              indexed: true,
               internalType: "uint256",
               name: "eventId",
               type: "uint256",
@@ -688,7 +688,7 @@ const deployedContracts = {
           anonymous: false,
           inputs: [
             {
-              indexed: false,
+              indexed: true,
               internalType: "uint256",
               name: "eventId",
               type: "uint256",
@@ -841,6 +841,11 @@ const deployedContracts = {
           name: "events",
           outputs: [
             {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
               internalType: "string",
               name: "name",
               type: "string",
@@ -919,9 +924,82 @@ const deployedContracts = {
           name: "getOrganizerEvents",
           outputs: [
             {
-              internalType: "uint256[]",
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "eventId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "string",
+                  name: "name",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "description",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "location",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "time",
+                  type: "uint256",
+                },
+                {
+                  internalType: "bool",
+                  name: "isCancelled",
+                  type: "bool",
+                },
+                {
+                  internalType: "address",
+                  name: "organizer",
+                  type: "address",
+                },
+              ],
+              internalType: "struct EventManager.Event[]",
               name: "",
-              type: "uint256[]",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+          ],
+          name: "getUserTickets",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "eventId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "string",
+                  name: "ticketType",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "quantity",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct EventManager.Ticket[]",
+              name: "",
+              type: "tuple[]",
             },
           ],
           stateMutability: "view",
@@ -988,6 +1066,53 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userTickets",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "ticketType",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+          ],
+          name: "withdrawFunds",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],
