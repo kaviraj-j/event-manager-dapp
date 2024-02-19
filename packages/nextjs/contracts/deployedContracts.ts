@@ -13,6 +13,563 @@ const deployedContracts = {
           anonymous: false,
           inputs: [
             {
+              indexed: true,
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+          ],
+          name: "EventCancelled",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "description",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "location",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "time",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "organizer",
+              type: "address",
+            },
+          ],
+          name: "EventCreated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "holder",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "ticketType",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+          ],
+          name: "TicketCancelled",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "buyer",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "ticketType",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+          ],
+          name: "TicketPurchased",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "ticketType",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "price",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+          ],
+          name: "TicketTypeAdded",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "ticketType",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "price",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+          ],
+          name: "addTicketType",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "ticketType",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+          ],
+          name: "buyTicket",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+          ],
+          name: "cancelEvent",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "ticketType",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+          ],
+          name: "cancelTicket",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "description",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "location",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "time",
+              type: "uint256",
+            },
+          ],
+          name: "createEvent",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "events",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "description",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "location",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "time",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "isCancelled",
+              type: "bool",
+            },
+            {
+              internalType: "address",
+              name: "organizer",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+          ],
+          name: "getEventTicketDetails",
+          outputs: [
+            {
+              internalType: "string[]",
+              name: "",
+              type: "string[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "",
+              type: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "organizer",
+              type: "address",
+            },
+          ],
+          name: "getOrganizerEvents",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "eventId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "string",
+                  name: "name",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "description",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "location",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "time",
+                  type: "uint256",
+                },
+                {
+                  internalType: "bool",
+                  name: "isCancelled",
+                  type: "bool",
+                },
+                {
+                  internalType: "address",
+                  name: "organizer",
+                  type: "address",
+                },
+              ],
+              internalType: "struct EventManager.Event[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+          ],
+          name: "getUserTickets",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "eventId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "string",
+                  name: "ticketType",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "quantity",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct EventManager.Ticket[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          name: "ticketOwnership",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          name: "ticketTypes",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "price",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "totalQuantity",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "availableQuantity",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userTickets",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "ticketType",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+          ],
+          name: "withdrawFunds",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+  11155111: {
+    EventManager: {
+      address: "0xCaD269fB3dC045Db12Ce4c7B9501567175878410",
+      abi: [
+        {
+          anonymous: false,
+          inputs: [
+            {
               indexed: false,
               internalType: "uint256",
               name: "eventId",
@@ -312,6 +869,40 @@ const deployedContracts = {
               internalType: "address",
               name: "organizer",
               type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "eventId",
+              type: "uint256",
+            },
+          ],
+          name: "getEventTicketDetails",
+          outputs: [
+            {
+              internalType: "string[]",
+              name: "",
+              type: "string[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "",
+              type: "uint256[]",
             },
           ],
           stateMutability: "view",
