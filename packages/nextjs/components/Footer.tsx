@@ -70,7 +70,7 @@ export const Footer = () => {
                 href="https://etherscan.io/address/0x3b529ac4F8dc0C40Fec0f1192029755275A0c3Cd"
                 target="_blank"
               >
-                by <span className="text-center text-bold">kaviraj.eth</span>
+                by <span className="link">kaviraj.eth</span>
               </a>
             </div>
             <span>·</span>
